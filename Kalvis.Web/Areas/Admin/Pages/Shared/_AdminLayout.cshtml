@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>پنل مدیریت | داشبورد اول</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <partial name="_HeaderReference" />
+
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <partial name="_Navbar" />
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <partial name="_MainSidebar" />
+
+        <!-- Content Wrapper. Contains page content -->
+
+                @RenderBody()
+
+        <!-- /.content-wrapper -->
+        <partial name="_Footer" />
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <partial name="_FooterReference" />
+</body>
+</html>
