@@ -49,6 +49,12 @@ namespace Kalvi.Domain.EducationEntities.CategoryEntities
 
         public List<SubCategory> SubCategory { get;  set; }
         public List<SubCategory> ParentCategory { get; private set; }
+        public long ParentId { get; set; }
+
+        public static implicit operator Category(bool v)
+        {
+            throw new NotImplementedException();
+        }
         //public List<Course> Courses { get; private set; }
         //public List<Blog> Blogs { get; private set; }
 

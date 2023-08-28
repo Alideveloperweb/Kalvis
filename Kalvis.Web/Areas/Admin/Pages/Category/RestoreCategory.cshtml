@@ -1,0 +1,48 @@
+﻿@page "{id}"
+@model Kalvis.Web.Areas.Admin.Pages.Category.RestoreCategoryModel
+@{
+}
+
+
+<div class="content-wrapper" style="min-height: 701px;">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 mt-2d">
+                    @await Component.InvokeAsync("OperationResultComponent")
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+                            <h3 class="card-title">ثبت دسته بندی جدید</h3>
+                        </div>
+
+                        <form method="post" asp-page="RestoreCategory" role="form">
+                            <input type="hidden" readonly="readonly" asp-for="RestoreCategory.CategoryId" />
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label asp-for="RestoreCategory.FaCategoryName"></label>
+                                    <input readonly="readonly" asp-for="RestoreCategory.FaCategoryName" class="form-control">
+                                    <span asp-validation-for="RestoreCategory.FaCategoryName" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="RestoreCategory.EnCategoryName"></label>
+                                    <input readonly="readonly" asp-for="RestoreCategory.EnCategoryName" class="form-control">
+                                    <span asp-validation-for="RestoreCategory.EnCategoryName" class="text-danger"></span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

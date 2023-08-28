@@ -1,4 +1,5 @@
-﻿using Kalvi.Domain.EducationEntities.CategoryEntities.Interface;
+﻿using Kalvi.Contract.CategoryViewmodel.Interface;
+using Kalvi.Domain.EducationEntities.CategoryEntities.Interface;
 using Kalvis.Application.CategoryApp;
 using Kalvis.Contract.CategoryViewModel.Interface;
 using Kalvis.EFCore.Repository.CaategoryRepository;
@@ -17,6 +18,12 @@ namespace Kalvis.Configuration.CategoryConfig
         {
             services.AddTransient<ICategoryRepository,CategoryRepository>();
             services.AddTransient<ICategoryApplication, CategoryApplication>();
+
+            #region Sub Category
+
+            services.AddTransient<ISubCategoryRepository, SubCategoryRepository>();
+
+            #endregion
         }
     }
 }

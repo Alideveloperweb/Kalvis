@@ -6,47 +6,48 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Kalvis.Web.Areas.Admin.Pages.Category
 {
-    public class CreateModel : PageModel
+    public class EditModel : PageModel
     {
+
         #region Constracture
-
         private readonly ICategoryApplication _App;
-
-        public CreateModel(ICategoryApplication App)
+        public EditModel(ICategoryApplication App)
         {
             _App = App;
         }
 
-
-
         #endregion
 
         [BindProperty]
-        public CreateCategoryItem CreateItem { get; set; }
+        public EditCategoryItem editCategorItem { get; set; }
 
-        public void OnGet()
+        public void OnGet(int Id)
         {
-            CreateItem = new();
-            CreateItem.GetAllCategoryItems = _App.GetAllCategory(0, false);
+            editCategorItem = new();
+            editCategorItem = _App.FindCategoryForEdit(Id);
+            editCategorItem.GetAllCategoryItems = _App.GetAllCategory(Id, false);
         }
+
 
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
-                CreateItem.GetAllCategoryItems = _App.GetAllCategory(0, false);
+                editCategorItem.GetAllCategoryItems = _App.GetAllCategory(editCategorItem.CategoryId, false);
                 return Page();
             }
 
-            OperationResult operationResult = _App.CreateCategory(CreateItem);
+            OperationResult operationResult = _App.EditCategory(editCategorItem);
             TempData["OperationResult"] = Newtonsoft.Json.JsonConvert.SerializeObject(operationResult);
             if (operationResult.Code != Operation.Success)
             {
-                CreateItem.GetAllCategoryItems = _App.GetAllCategory(0, false);
+                editCategorItem = _App.FindCategoryForEdit(editCategorItem.CategoryId);
+                editCategorItem.GetAllCategoryItems = _App.GetAllCategory(editCategorItem.CategoryId, false);
                 return Page();
             }
 
             return RedirectToPage("./Index");
+
         }
     }
 }

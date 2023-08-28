@@ -1,25 +1,27 @@
-using Kalvis.Contract.CategoryViewModel;
 using Kalvis.Contract.CategoryViewModel.Interface;
+using Kalvis.Contract.CategoryViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Kalvis.Web.Areas.Admin.Pages.Category
 {
-    public class IndexModel : PageModel
+    public class RestoreModel : PageModel
     {
         #region Constract
         private readonly ICategoryApplication _App;
-        public IndexModel(ICategoryApplication App)
+
+        public RestoreModel(ICategoryApplication App)
         {
             _App = App;
         }
+
 
         #endregion
 
         public List<GetAllCategoryItem> GetAllCategory { get; set; }
         public void OnGet()
         {
-            GetAllCategory = _App.GetAllCategory(0, false);
+            GetAllCategory = _App.GetAllCategory(0, true);
         }
     }
 }

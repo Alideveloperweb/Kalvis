@@ -21,6 +21,7 @@ namespace Kalvis.EFCore.ApplicationContexts
         #region Category
 
         public DbSet<Category> Categories { get; set; }
+
         public DbSet<SubCategory> SubCategories { get; set; }
 
         #endregion

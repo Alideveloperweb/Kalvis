@@ -6,7 +6,7 @@ namespace Kalvi.Domain.EducationEntities.CategoryEntities
         public int Id { get; private set; }
 
         public int ParentId { get; private set; }
-        public int SubId { get; private set; }
+        public int SubId { get; set; }
 
 
         #region Constractore

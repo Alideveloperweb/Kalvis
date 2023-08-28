@@ -1,57 +1,47 @@
-﻿@page
-@model Kalvis.Web.Areas.Admin.Pages.Category.CreateModel
+﻿@page "{id}"
+@model Kalvis.Web.Areas.Admin.Pages.Category.EditModel
 @{
     List<GetAllCategoryItem> RemoveList = new();
 }
-<div class="content-wrapper">
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>فرم‌های عمومی</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-left">
-                        <li class="breadcrumb-item"><a href="#">خانه</a></li>
-                        <li class="breadcrumb-item active">دسته بندی ها</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </section>
+
+
+<div class="content-wrapper" style="min-height: 701px;">
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mt-2d">
+                    @await Component.InvokeAsync("OperationResultComponent")
                     <div class="card card-primary">
-                        @await Component.InvokeAsync("OperationResultComponent");
+
                         <div class="card-header">
                             <h3 class="card-title">ثبت دسته بندی جدید</h3>
                         </div>
-                        <form method="post" asp-page="Create" role="form">
+
+                        <form method="post" asp-page="Edit" role="form">
+                            <input type="hidden" asp-for="editCategorItem.CategoryId" />
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label asp-for="CreateItem.FaCategoryName"></label>
-                                    <input asp-for="CreateItem.FaCategoryName" class="form-control">
-                                    <span asp-validation-for="CreateItem.FaCategoryName" class="text-danger"></span>
+                                    <label asp-for="editCategorItem.FaCategoryName"></label>
+                                    <input asp-for="editCategorItem.FaCategoryName" class="form-control">
+                                    <span asp-validation-for="editCategorItem.FaCategoryName" class="text-danger"></span>
                                 </div>
 
                                 <div class="form-group">
-                                    <label asp-for="CreateItem.EnCategoryName"></label>
-                                    <input asp-for="CreateItem.EnCategoryName" class="form-control">
-                                    <span asp-validation-for="CreateItem.EnCategoryName" class="text-danger"></span>
+                                    <label asp-for="editCategorItem.EnCategoryName"></label>
+                                    <input asp-for="editCategorItem.EnCategoryName" class="form-control">
+                                    <span asp-validation-for="editCategorItem.EnCategoryName" class="text-danger"></span>
 
                                 </div>
 
                                 <div class="form-group">
-                                    <label asp-for="CreateItem.GetAllCategoryItems"></label>
+                                    <label asp-for="editCategorItem.GetAllCategoryItems"></label>
                                     <div class="row">
                                         <select class="form-control col-lg-9 ml-1d" id="sublist">
-                                            @foreach (var item in Model.CreateItem.GetAllCategoryItems)
+                                            @foreach (var item in Model.editCategorItem.GetAllCategoryItems)
                                             {
-                                                if ((Model.CreateItem != null && Model.CreateItem.SubId != null))
+                                                if ((Model.editCategorItem != null && Model.editCategorItem.SubId != null))
                                                 {
-                                                    if (Model.CreateItem.SubId.Contains(item.CategoryId))
+                                                    if (Model.editCategorItem.SubId.Contains(item.CategoryId))
                                                     {
                                                         RemoveList.Add(new GetAllCategoryItem
                         {
@@ -73,24 +63,21 @@
                                                 }
                                             }
                                         </select>
-                                        <button type="button" class="btn btn-success col-lg-2 add-sub" data-name="categorItem.SubId">انتخاب</button>
+                                        <button type="button" class="btn btn-success col-lg-2 add-sub" data-name="editCategorItem.SubId">انتخاب</button>
                                     </div>
                                     <div class="sublist">
-
                                         @if (RemoveList.Count() > 0)
                                         {
                                             @foreach (var item in RemoveList)
                                             {
                                                 <div class="category_inline">
                                                     <button style="margin-left:0" type="button" class="close pull-left btn-remove">×</button>
-                                                    <input type="hidden" value="@item.CategoryId" name="categorItem.SubId" />
+                                                    <input type="hidden" value="@item.CategoryId" name="editCategorItem.SubId" />
                                                     <span style="margin-left:10px" class="subtext">@item.FaCategoryName</span>
                                                 </div>
                                             }
                                         }
-
                                     </div>
-
                                 </div>
 
                             </div>
@@ -100,8 +87,11 @@
                             </div>
                         </form>
                     </div>
+
                 </div>
             </div>
         </div>
     </section>
 </div>
+
+
