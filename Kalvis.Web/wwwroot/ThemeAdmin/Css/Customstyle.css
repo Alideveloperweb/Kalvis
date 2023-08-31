@@ -1,0 +1,29 @@
+﻿
+.mt-2d {
+    margin-top: 2%;
+}
+
+.ml-1d {
+    margin-left: 1% !important;
+}
+
+.category_inline {
+    max-width: 25%;
+    background: #dd8914;
+    padding: 10px;
+    border-radius: 5px;
+    color: whitesmoke;
+    margin-top: 1%;
+    position: sticky;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.img-thumb {
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.Font-size_13p {
+    font-size: 13px;
+}

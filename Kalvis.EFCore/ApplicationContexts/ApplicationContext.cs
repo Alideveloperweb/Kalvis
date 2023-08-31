@@ -1,4 +1,7 @@
 ﻿using Kalvi.Domain.EducationEntities.CategoryEntities;
+using Kalvi.Domain.EducationEntities.CommentEntities;
+using Kalvi.Domain.EducationEntities.CourseEntities;
+using Kalvis.Domain.EducationEntities.UserEntities;
 using Kalvis.EFCore.Mapping.CategoryMapper;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,7 +29,34 @@ namespace Kalvis.EFCore.ApplicationContexts
 
         #endregion
 
+        #region User 
+
+        public DbSet<User> users{ get; set; }
+
         #endregion
+
+        #region Course
+
+        public DbSet<Course> courses { get; set; }
+
+        public DbSet<CourseEpisode> CourseEpisodes { get; set; }
+
+        public DbSet<CourseComment> CourseComments { get; set; }
+
+        public DbSet<AnswerComment> AnswerComments { get; set; }
+
+        public DbSet<UserCourse> UserCourses { get; set; }
+
+        #endregion
+
+        #region Orders
+        public DbSet<CourseOrders> CourseOrders { get; set; }
+        public DbSet<CourseOrderDetails> CourseOrderDetails { get; set; }
+        #endregion
+
+        #endregion
+
+
 
         #region OnModelCreating
 
