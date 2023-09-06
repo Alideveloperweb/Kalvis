@@ -8,5 +8,6 @@ namespace Kalvis.Domain.TicketEntities
 {
     public class TicketAnswer
     {
+
     }
 }

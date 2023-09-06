@@ -66,7 +66,45 @@ namespace Kalvis.Application.CategoryApp
 
         public OperationResult EditCategory(EditCategoryItem editCategoryItem)
         {
-            throw new NotImplementedException();
+            OperationResult operationResult = new();
+            ApplicationMessage message = new("دسته بندی");
+            if (
+                _categoryRepository.Exist(x => x.Id != editCategorItem.CategoryId
+               && (x.FaCategoryName == editCategorItem.FaCategoryName
+               || x.EnCategoryName == editCategorItem.EnCategoryName))
+               )
+                return operationResult.Failed(Operation.Dublicade, message.Dublicate("اصلی"));
+
+            Category category = _categoryRepository.Get(editCategorItem.CategoryId);
+
+            if (category.EnCategoryName != editCategorItem.EnCategoryName)
+            {
+                Uploder.ChanjeName(Router.RouteImageEducation +
+                    category.EnCategoryName, Router.RouteImageEducation +
+                    editCategorItem.EnCategoryName);
+
+                Uploder.ChanjeName(Router.RouteImageBlog +
+                    category.EnCategoryName, Router.RouteImageBlog +
+                    editCategorItem.EnCategoryName);
+            }
+
+            category.Edit(editCategorItem.EnCategoryName,
+                editCategorItem.FaCategoryName);
+
+
+            bool Update = _categoryRepository.Update(category);
+            if (!Update)
+                return operationResult.Failed(Operation.Error, message.ErrorUpdate());
+
+
+            bool save = _categoryRepository.SaveChanges();
+            if (!save)
+                return operationResult.Failed(Operation.Error, message.ErrorSave());
+
+            AddOrUpdateSubCategory(category.Id, editCategorItem.SubId);
+
+            return operationResult.Success(Operation.Success, message.Update());
+
         }
         #endregion
 
