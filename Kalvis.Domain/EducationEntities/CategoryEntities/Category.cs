@@ -1,10 +1,8 @@
-﻿
-using Kalvi.Common.Domain;
-using Kalvi.Domain.EducationEntities.CourseEntities;
-using System;
-using System.Collections.Generic;
+﻿using Kalvis.Common.Domain;
+using Kalvis.Domain.BlogEntities;
+using Kalvis.Domain.EducationEntities.CourseEntities;
 
-namespace Kalvi.Domain.EducationEntities.CategoryEntities
+namespace Kalvis.Domain.EducationEntities.CategoryEntities
 {
     public class Category : EntityBase<int>
     {
@@ -55,8 +53,8 @@ namespace Kalvi.Domain.EducationEntities.CategoryEntities
         {
             throw new NotImplementedException();
         }
-        //public List<Course> Courses { get; private set; }
-        //public List<Blog> Blogs { get; private set; }
+        public List<Course> Courses { get; private set; }
+        public List<Blog> Blogs { get; private set; }
 
         #endregion
 

@@ -1,0 +1,59 @@
+﻿@page "{id}"
+@model Kalvis.Web.Areas.Admin.Pages.Permission.UpdateModel
+@{
+}
+
+
+<div class="content-wrapper" style="min-height: 701px;">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 mt-2d">
+                    @await Component.InvokeAsync("OperationResultComponent")
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+                            <h3 class="card-title">ثبت دسته بندی جدید</h3>
+                        </div>
+
+                        <form method="post" asp-page="Update" role="form">
+                            <input name="RoleID" type="hidden" asp-for="UpdateRole.RoleID" />
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>نام نقش :</label>
+                                    <input asp-for="UpdateRole.RoleTitle" name="RoleTitle" class="form-control">
+                                </div>
+
+                                <div class="col-lg-12">
+                                    @foreach (var item in Model.permissions.Where(x => x.PermissionParent == null))
+                                    {
+                                        <div class="form-group" style="margin-bottom:0px;">
+                                            <label>@item.PermissionTile</label>
+                                            <input checked="@(Model.GetAllPermission.Where(x=>x.PermissionID==item.PermissionID).Any()?"checked":null)"
+                                                   name="PermissionID" value="@item.PermissionID" type="checkbox">
+                                        </div>
+                                        @foreach (var item2 in Model.permissions.Where(x => x.PermissionParent == item.PermissionID))
+                                        {
+                                            <div class="mr-5">
+                                                <label>@item2.PermissionTile</label>
+                                                <input checked="@(Model.GetAllPermission.Where(x=>x.PermissionID==item2.PermissionID).Any()?"checked":null)"
+                                                       name="PermissionID" value="@item2.PermissionID" type="checkbox">
+                                            </div>
+                                        }
+                                    }
+                                </div>
+
+
+                            </div>
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

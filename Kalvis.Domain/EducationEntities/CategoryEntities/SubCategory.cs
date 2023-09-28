@@ -1,5 +1,5 @@
 ﻿
-namespace Kalvi.Domain.EducationEntities.CategoryEntities
+namespace Kalvis.Domain.EducationEntities.CategoryEntities
 {
     public class SubCategory
     {

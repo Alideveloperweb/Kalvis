@@ -1,15 +1,19 @@
-﻿using Kalvi.Common.Domain;
+﻿using Kalvis.Common.Domain;
+using Kalvis.Common.Enum;
+using Kalvis.Domain.EducationEntities.CategoryEntities;
+using Kalvis.Domain.EducationEntities.CommentEntities;
+using Kalvis.Domain.OrderEntities.CourseOrderEntities;
+using Kalvis.Domain.UserEntities;
 
-using Kalvi.Domain.EducationEntities.CategoryEntities;
-using Kalvi.Domain.EducationEntities.CommentEntities;
-
-using System;
-using System.Collections.Generic;
-
-namespace Kalvi.Domain.EducationEntities.CourseEntities
+namespace Kalvis.Domain.EducationEntities.CourseEntities
 {
     public class Course : EntityBase<long>
     {
+        private CourseLevel courseLevel;
+        private Language language;
+        private string imageName;
+        private int courseCategoryId;
+        public Language Language;
         #region Properties
         public string CourseTitle { get; private set; }
         public string CourseSummery { get; private set; }
@@ -46,6 +50,23 @@ namespace Kalvi.Domain.EducationEntities.CourseEntities
             this.CategoryId = CategoryId;
             this.UserId = UserId;
             this.Percentage = Percentage;
+        }
+
+        public Course(string courseTitle, string courseSummery, int coursePrice, CourseLevel courseLevel, Language language, string imageName, string courseDescription, string tags, bool activeComment, bool activeFaq, int courseCategoryId, long userId, byte percentage)
+        {
+            CourseTitle = courseTitle;
+            CourseSummery = courseSummery;
+            CoursePrice = coursePrice;
+            this.courseLevel = courseLevel;
+            this.language = language;
+            this.imageName = imageName;
+            CourseDescription = courseDescription;
+            Tags = tags;
+            ActiveComment = activeComment;
+            ActiveFaq = activeFaq;
+            this.courseCategoryId = courseCategoryId;
+            UserId = userId;
+            Percentage = percentage;
         }
 
         #endregion
@@ -86,15 +107,21 @@ namespace Kalvi.Domain.EducationEntities.CourseEntities
         {
             this.IsRemove = false;
         }
+
+        public void Edit(string courseTitle, string courseSummery, int coursePrice, CourseLevel courseLevel, Language language, string imageName, string courseDescription, string tags, bool activeComment, bool activeFaq, int courseCategoryId, long userId, byte percentage)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         #region Relation
         public Category Category { get; private set; }
-        //public User User { get; private set; }
-        //public List<CourseEpisode> CourseEpisodes { get; private set; }
-        //public List<CourseComment> CourseComments { get; private set; }
-        //public List<UserCourse> UserCourses { get; private set; }
-        //public List<CourseOrderDetails> CourseOrderDetails { get; private set; }
+        public User User { get; private set; }
+        public List<CourseEpisode> CourseEpisodes { get; private set; }
+        public List<CourseComment> CourseComments { get; private set; }
+        public List<UserCourse> UserCourses { get; private set; }
+        public List<CourseOrderDetails> CourseOrderDetails { get; private set; }
+        public CourseLevel CourseLevel { get; set; }
         #endregion
 
     }

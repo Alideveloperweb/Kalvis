@@ -1,0 +1,49 @@
+﻿
+@{
+    var Route =
+         ViewContext.RouteData.
+         Values.Values.ArrayeGetValue(0);
+}
+
+<div class="col-12 col-lg-3">
+
+    <div class="card bg-info mt-5 mb-1 p-5">
+        <img src="/ThemeUser/img/user.png" class="img-fluid rounded-circle d-block mx-auto img-thumbnail" width="80px" height="80px" alt="user-image">
+        <h5 class="text-white text-center mt-4 font-14 vazir">آرش سبحانی عزیز سلام !</h5>
+    </div>
+
+    <div class="text-right">
+        <div class="list-group p-0 mb-5 profile">
+            <a href="/User" class="@(Route=="/user"?"active":null) list-group-item list-group-item-action font-13 vazir text-dark">
+                <i class="fa fa-home align-middle ml-2 font-12 text-secondary"></i>
+                پیشخوان
+            </a>
+
+            <a href="/User/UserCourse"
+               class="@(Route=="usercourse/index"?"active":null) list-group-item list-group-item-action font-13 vazir text-dark">
+                <i class="fa fa-graduation-cap align-middle ml-2 font-12  text-secondary"></i>دوره های شما
+            </a>
+
+            <a href="#shopping-cart" class="list-group-item list-group-item-action font-13 vazir text-dark " data-toggle="list"><i class="fa fa-shopping-cart align-middle ml-2 font-12  text-secondary"></i>سبد خرید </a>
+
+            <a href="/User/Ticket" class="list-group-item list-group-item-action font-13 vazir text-dark">
+                <i class="fa fa-tags align-middle ml-2 font-11 text-secondary"></i>
+                تیکت ها
+            </a>
+
+            <a href="/User/UserDetail" class="list-group-item list-group-item-action font-13 vazir text-dark">
+                <i class="fa fa-user-circle align-middle ml-2 font-12  text-secondary"></i>
+                جزئیات حساب کاربری
+            </a>
+            <a href="/User/ChangePassword" class="list-group-item list-group-item-action font-13 vazir text-dark">
+                <i class="fa fa-user-circle align-middle ml-2 font-12  text-secondary"></i>
+                  تغییر پسورد
+            </a>
+
+            <a href="/Account/LogOut" class="list-group-item list-group-item-action font-13 vazir text-dark">
+            <i class="fa fa-times align-middle ml-2 font-12  text-secondary"></i>
+            خروج
+            </a>
+        </div>
+    </div>
+</div>

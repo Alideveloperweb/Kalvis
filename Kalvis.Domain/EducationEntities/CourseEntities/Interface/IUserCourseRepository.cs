@@ -1,8 +1,8 @@
 ﻿
 
-using Kalvi.Common.Domain;
+using Kalvis.Common.Domain;
 
-namespace Kalvi.Domain.EducationEntities.CourseEntities.Interface
+namespace Kalvis.Domain.EducationEntities.CourseEntities.Interface
 {
     public interface IUserCourseRepository
           : IRepositoryBase<long, UserCourse>

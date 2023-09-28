@@ -1,0 +1,97 @@
+﻿@page
+@model Kalvis.Web.Areas.Admin.Pages.Blog.CreateModel
+@{
+}
+
+<div class="content-wrapper" style="min-height: 701px;">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 mt-2d">
+                    @await Component.InvokeAsync("OperationResultComponent")
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+                            <h3 class="card-title">ثبت دسته بندی جدید</h3>
+                        </div>
+
+                        <form method="post" asp-page="Create" enctype="multipart/form-data">
+
+                            <div class="card-body">
+
+                                <div class="row col-lg-12">
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label asp-for="CreateBlog.BlogTitle"></label>
+                                            <input asp-for="CreateBlog.BlogTitle" class="form-control">
+                                            <span asp-validation-for="CreateBlog.BlogTitle" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label asp-for="CreateBlog.Uploder"></label>
+                                            <input asp-for="CreateBlog.Uploder" type="file" class="form-control">
+                                            <span asp-validation-for="CreateBlog.Uploder" class="text-danger"></span>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label asp-for="CreateBlog.CategoryId"></label>
+                                            <select class="form-control" asp-for="CreateBlog.CategoryId"
+                                                    asp-items="@(new SelectList(Model.CreateBlog.GetAllCategory,"CategoryId","EnCategoryName"))"></select>
+                                            <span asp-validation-for="CreateBlog.CategoryId" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label asp-for="CreateBlog.Tags"></label>
+                                            <textarea asp-for="CreateBlog.Tags" class="form-control"></textarea>
+                                            <span asp-validation-for="CreateBlog.Tags" class="text-danger"></span>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label asp-for="CreateBlog.IsComment"></label>
+                                            <input type="checkbox" asp-for="CreateBlog.IsComment">
+                                            <span asp-validation-for="CreateBlog.IsComment" class="text-danger"></span>
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label asp-for="CreateBlog.IsActive"></label>
+                                            <input type="checkbox" asp-for="CreateBlog.IsActive">
+                                            <span asp-validation-for="CreateBlog.IsActive" class="text-danger"></span>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+
+                                        <div class="form-group">
+                                            <label asp-for="CreateBlog.BlogDescription"></label>
+                                            <textarea asp-for="CreateBlog.BlogDescription" class="form-control"></textarea>
+                                            <span asp-validation-for="CreateBlog.BlogDescription" class="text-danger"></span>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

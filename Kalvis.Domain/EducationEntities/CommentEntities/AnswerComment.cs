@@ -1,8 +1,8 @@
 ﻿
-using Kalvi.Common.Domain;
+using Kalvis.Common.Domain;
+using Kalvis.Domain.EducationEntities.UserEntities;
 
-
-namespace Kalvi.Domain.EducationEntities.CommentEntities
+namespace Kalvis.Domain.EducationEntities.CommentEntities
 {
     public class AnswerComment : EntityBase<long>
     {
@@ -21,7 +21,7 @@ namespace Kalvi.Domain.EducationEntities.CommentEntities
         #endregion
 
         #region Relation
-       // public User User { get; private set; }
+        public User User { get; private set; }
         public CourseComment CourseComment { get; private set; }
         #endregion
     }

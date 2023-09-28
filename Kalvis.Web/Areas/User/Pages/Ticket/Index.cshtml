@@ -1,0 +1,59 @@
+﻿@page
+@model Kalvis.Web.Areas.User.Pages.Ticket.IndexModel
+@{
+}
+
+
+<div class="tab-pane fade show col-lg-9 mt-5" id="ticket">
+    <!----- Start ticket ----->
+    <div class="card mb-3">
+        <div class="card-header">
+            <p class="font-13 vazir mt-2 mr-2">تیکت های شما :</p>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    @await Component.InvokeAsync("OperationUserComponent")
+                    <form asp-page="Index" method="post">
+                        <div class="form-group">
+                            <label for="title" class="font-14 vazir">عنوان</label>
+                            <input asp-for="Create.TicketTitle" class="form-control form-control-lg" type="text" placeholder="عنوان مورد نظر خود را وارد کنید ...">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="text" class="font-14 vazir">متن پیام</label>
+                            <textarea asp-for="Create.TicketText" class="form-control" rows="3" placeholder="پیام خود را وارد کنید ..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-lg btn-outline-info btn-block font-13">ارسال تیکت</button>
+                    </form>
+
+                    <p class="font-14 vazir my-5">لیست تیکت های شما :</p>
+
+                    @if (Model.Ticket.Count() > 0)
+                    {
+                        @foreach (var item in Model.Ticket)
+                        {
+                            <div class=" shadow-sm mr-5 Border-dashed mt-3 p-2 bg-white" style="border: dashed 1px gray; position: relative">
+                                <div class="d-flex align-items-center">
+                                    <small class="mx-5 text-muted font-11">@item.CreateDate</small>
+                                </div>
+                                <p class="text-justify my-2 vazir font-13">@item.TicketTitle</p>
+                                <a href="/User/Ticket/GetTicket/@item.TicketId" class="btn btn-success pull-left btn_Ticket">نمایش تیکت</a>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="alert alert-warning">
+                            <p class="font-13 vazir mt-3">تاکنون تیکتی برای شما ثبت نشده است !</p>
+                        </div>
+                    }
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

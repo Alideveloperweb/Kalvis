@@ -1,0 +1,53 @@
+﻿
+@model EditCourseDisCountItem
+
+<form asp-page="Index"
+      asp-page-handler="Edit"
+      data-method="post"
+      data-ajax="true"
+      data-urlback="/Admin/Discount/CourseDisCount"
+      enctype="multipart/form-data">
+    <input type="hidden" asp-for="CourseDisCountID" />
+
+    <div class="col-md-12">
+        <label asp-for="Code"></label>
+        <input asp-for="Code"
+               class="form-control" />
+        <span class="text-danger" asp-validation-for="Code"></span>
+    </div>
+
+    <div class="col-md-12">
+        <label asp-for="Value"></label>
+        <input asp-for="Value"
+               class="form-control" />
+        <span class="text-danger" asp-validation-for="Value"></span>
+
+    </div>
+
+    <div class="col-md-12">
+        <label asp-for="MaxUserCount"></label>
+        <input asp-for="MaxUserCount"
+               class="form-control" />
+
+    </div>
+
+    <div class="col-md-12">
+        <label asp-for="StartDate"></label>
+        <input id="StartDate" asp-for="StartDate"
+               class="form-control" />
+
+    </div>
+
+    <div class="col-md-12">
+        <label asp-for="EndDate"></label>
+        <input id="EndDate" asp-for="EndDate"
+               class="form-control" />
+
+    </div>
+
+
+    <div class="modal-footer margin-top-10">
+        <button style="margin:auto;" type="submit" class="btn btn-success margin-left-10">ثبت تغییرات </button>
+    </div>
+
+</form>

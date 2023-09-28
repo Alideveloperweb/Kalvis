@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using Kalvis.Contract.NotificationViewModel;
 
-namespace Kalvis.Contract.UserViewmodel
+namespace Kalvis.Contract.UserViewModel
 {
     public class AccountDetailItem
     {
@@ -12,7 +9,7 @@ namespace Kalvis.Contract.UserViewmodel
         public int UserCourseCount { get; set; }
         public int AwaitingPayeCount { get; set; }
         public int WalletBalance { get; set; }
-        //public List<GetAllNotificationItem> GetAllNotification { get; set; }
+        public List<GetAllNotificationItem> GetAllNotification { get; set; }
 
     }
 }

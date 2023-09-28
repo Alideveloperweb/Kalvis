@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Kalvi.Common.Domain
+namespace Kalvis.Common.Domain
 {
     public interface IRepositoryBase<Tkey,TEntity>where TEntity : class
     {

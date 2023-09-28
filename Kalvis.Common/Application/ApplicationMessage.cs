@@ -4,76 +4,76 @@ namespace Kalvis.Common.Application
     public class ApplicationMessage
     {
         public string Message { get; set; }
-
-        public ApplicationMessage(string text)
+        public ApplicationMessage(string Text)
         {
-            Message = text;
+            this.Message = Text;
         }
-
-        public string Dublicate()
+        public string Dublicate(string Text)
         {
-            var message = $"{Message} تکراری است ";
+            var message = $"{Text} {Message} تکراری است .";
             return message;
         }
-
         public string ErrorCreate()
         {
-            var message = $" {Message}خطا در ایجاد ";
+            string message = $"خطا در ایجاد {Message}";
             return message;
         }
-
         public string ErrorUpdate()
         {
-            var message = $" {Message}خطا در بروز رسانی ";
+            string message = $"خطا در ویراش {Message}";
             return message;
         }
-
         public string ErrorRemove()
         {
-            var message = $" {Message}خطا در حذف دسته بندی ";
+            string message = $"خطا در حذف {Message}";
             return message;
         }
-
         public string ErrorRestore()
         {
-            var message = $" {Message}خطا در بازیابی ";
+            string message = $"خطا در بازیابی {Message}";
             return message;
         }
-
         public string ErrorSave()
         {
-            var message = $" {Message}خطا در ذخیره سازی ";
+            string message = $"خطا در ذخیره {Message}";
             return message;
         }
-
         public string Create()
         {
-            var message = $" {Message}با موفقیت ایجاد شد  ";
+            string message = $"{Message} با موفقیت ایجاد شد .";
             return message;
         }
-
         public string Update()
         {
-            var message = $" {Message}با موفقیت ویرایش شد  ";
+            string message = $"{Message} با موفقیت ویرایش شد .";
             return message;
         }
-
         public string Remove()
         {
-            var message = $" {Message}با موفقیت حذف شد  ";
+            string message = $"{Message} با موفقیت حذف شد .";
             return message;
         }
-
         public string Restore()
         {
-            var message = $" {Message}با موفقیت بازیابی شد  ";
+            string message = $"{Message} با موفقیت بازیابی شد .";
+            return message;
+        }
+        public string Nullabele()
+        {
+            string message = $"{Message} پیدا نشد .";
+            return message;
+        }
+        public string ErrorChangePassword()
+        {
+            string message = $"{Message} وارد شده معتبر نمی باشد.";
             return message;
         }
 
-        public string NullAbele()
+        public string ErrorUplodeImage()
         {
-            var message = $" {Message}یافت نشد  ";
+            string message = $"خطا در ایجادتصویر {Message}";
             return message;
         }
+
     }
 }

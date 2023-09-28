@@ -10,7 +10,8 @@ namespace Kalvis.Common.Application
     {
         public const int Success = 1;
         public const int Dublicade = 2;
-        public const int Nullsble = 3;
+        public const int Nullabel = 3;
         public const int Error = 4;
+        public const int ErrorUplod = 5;
     }
 }

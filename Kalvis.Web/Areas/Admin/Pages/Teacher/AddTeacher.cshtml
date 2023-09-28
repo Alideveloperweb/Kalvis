@@ -1,0 +1,22 @@
+﻿
+@model UserUpgradeItem
+
+<form asp-page="Index"
+      asp-page-handler="AddOrRemoveTeacher"
+      data-method="post"
+      data-ajax="true"
+      data-urlback="/Admin/Teacher"
+      enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="TeacherId" />
+    <div class="col-md-5">
+        <label asp-for="IsTeacher"></label>
+        <input type="checkbox" asp-for="IsTeacher"
+               class="" />
+
+    </div>
+    <div class="modal-footer margin-top-10">
+        <button style="margin:auto;" type="submit" class="btn btn-success margin-left-10">ثبت تغییرات </button>
+    </div>
+
+</form>

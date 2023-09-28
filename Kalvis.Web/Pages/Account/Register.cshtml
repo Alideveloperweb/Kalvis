@@ -1,0 +1,78 @@
+﻿@page
+@model Kalvis.Web.Pages.Account.RegisterModel
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="fa">
+
+<head>
+
+    <partial name="_css" />
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="shadow"></div>
+            <div class="box"></div>
+        </div>
+    </div>
+    <!-- End Preloader -->
+    <!-- Start Register Area -->
+    <section class="register-area">
+        <div class="row m-0">
+            <div class="col-lg-6 col-md-12 p-0">
+                <div class="register-image">
+                    <img src="/ThemeSite/assets/img/register-bg.jpg" alt="image">
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 p-0">
+                <div class="register-content">
+                    <div class="d-table">
+                        <div class="d-table-cell">
+                            <div class="register-form">
+                                <div class="logo">
+                                    <a href="index.html"><img src="/ThemeSite/assets/img/black-logo.png" alt="image"></a>
+                                </div>
+
+                                <h3>اکنون حساب خود را بسازید</h3>
+                                <p>ثبت نام کرده اید؟ <a href="login.html">ورود</a></p>
+
+                                <form asp-page="Register" method="post">
+                                    <div class="form-group">
+                                        <input asp-for="Register.UserName" type="text" placeholder="نام کاربری" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input asp-for="Register.Email" type="email" placeholder="آدرس ایمیل" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input asp-for="Register.Password" type="password" placeholder="رمز عبور جدید" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input asp-for="Register.ConfigrmPassword" type="password" placeholder="تایید رمز عبور" class="form-control">
+                                    </div>
+
+                                    <button type="submit">ثبت نام</button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <partial name="_js" />
+</body>
+
+</html>

@@ -1,8 +1,11 @@
-﻿using Kalvi.Common.Domain;
-using Kalvi.Domain.EducationEntities.CommentEntities;
-using Kalvi.Domain.EducationEntities.CourseEntities;
-using Kalvi.Domain.EducationEntities.TeacherEntities;
+﻿using Kalvis.Common.Domain;
+using Kalvis.Domain.EducationEntities.TeacherEntities;
 using Kalvis.Common.Application;
+using Kalvis.Domain.EducationEntities.CommentEntities;
+using Kalvis.Domain.EducationEntities.CourseEntities;
+using Kalvis.Domain.OrderEntities.CourseOrderEntities;
+using Kalvis.Domain.TicketEntities;
+using Kalvis.Domain.PermissionEntities;
 
 namespace Kalvis.Domain.EducationEntities.UserEntities
 {
@@ -142,13 +145,13 @@ namespace Kalvis.Domain.EducationEntities.UserEntities
 
         #region Relation
         public List<Teacher> Teachers { get; set; }
-        //public List<CourseComment> CourseComments { get; set; }
-        //public List<Course> Courses { get; set; }
-        //public List<UserCourse> UserCourses { get; private set; }
-        //public List<CourseOrders> CourseOrders { get; private set; }
-        //public List<Ticket> Tickets { get; private set; }
-        //public List<AnswerComment> AnswerComments { get; private set; }
-        //public List<UserRole> UserRoles { get; private set; }
+        public List<CourseComment> CourseComments { get; set; }
+        public List<Course> Courses { get; set; }
+        public List<UserCourse> UserCourses { get; private set; }
+        public List<CourseOrders> CourseOrders { get; private set; }
+        public List<Ticket> Tickets { get; private set; }
+        public List<AnswerComment> AnswerComments { get; private set; }
+        public List<UserRole> UserRoles { get; private set; }
         #endregion
 
     }

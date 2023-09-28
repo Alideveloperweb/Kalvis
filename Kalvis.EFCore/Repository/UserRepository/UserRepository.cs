@@ -1,5 +1,5 @@
 ﻿using Kalvis.Common.Application;
-using Kalvis.Contract.UserViewmodel;
+using Kalvis.Contract.UserViewModel;
 using Kalvis.Domain.EducationEntities.UserEntities;
 using Kalvis.Domain.EducationEntities.UserEntities.Interface;
 using Kalvis.EFCore.ApplicationContexts;

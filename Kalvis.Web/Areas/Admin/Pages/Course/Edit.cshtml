@@ -1,0 +1,141 @@
+﻿@page "{id}"
+@model Kalvis.Web.Areas.Admin.Pages.Course.EditModel
+@{
+}
+
+
+<div class="content-wrapper" style="min-height: 701px;">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 mt-2d">
+                    @await Component.InvokeAsync("OperationResultComponent")
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+                            <h3 class="card-title">ثبت دسته بندی جدید</h3>
+                        </div>
+
+                        <form method="post" asp-page="Edit" enctype="multipart/form-data">
+                            <input type="hidden" asp-for="EditCourse.CourseId" />
+
+                            <div class="card-body">
+
+                                <div class="row col-lg-12">
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label asp-for="EditCourse.CourseTitle"></label>
+                                            <input asp-for="EditCourse.CourseTitle" class="form-control">
+                                            <span asp-validation-for="EditCourse.CourseTitle" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label asp-for="EditCourse.CoursePrice"></label>
+                                            <input asp-for="EditCourse.CoursePrice" class="form-control">
+                                            <span asp-validation-for="EditCourse.CoursePrice" class="text-danger"></span>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label asp-for="EditCourse.Percentage"></label>
+                                            <input asp-for="EditCourse.Percentage" class="form-control">
+                                            <span asp-validation-for="EditCourse.Percentage" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label asp-for="EditCourse.Uploder"></label>
+                                            <input asp-for="EditCourse.Uploder" class="form-control">
+                                            <span asp-validation-for="EditCourse.Uploder" class="text-danger"></span>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label asp-for="EditCourse.courseLevel"></label>
+                                            <select asp-items="Html.GetEnumSelectList<CourseLevel>()" asp-for="EditCourse.courseLevel" class="form-control"></select>
+                                            <span asp-validation-for="EditCourse.courseLevel" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label asp-for="EditCourse.Language"></label>
+                                            <select asp-items="Html.GetEnumSelectList<Language>()" asp-for="EditCourse.Language" class="form-control"></select>
+                                            <span asp-validation-for="EditCourse.Language" class="text-danger"></span>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label asp-for="EditCourse.Tags"></label>
+                                            <textarea asp-for="EditCourse.Tags" class="form-control"></textarea>
+                                            <span asp-validation-for="EditCourse.Tags" class="text-danger"></span>
+                                        </div>
+
+
+
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label asp-for="EditCourse.UserId"></label>
+                                            <select class="form-control" asp-for="EditCourse.UserId"
+                                                    asp-items="@(new SelectList(Model.EditCourse.getAllTeacherItem,"TeacherId","UserName"))">
+                                            </select>
+                                            <span asp-validation-for="EditCourse.UserId" class="text-danger"></span>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="EditCourse.CourseCategoryId"></label>
+                                            <select class="form-control" asp-for="EditCourse.CourseCategoryId"
+                                                    asp-items="@(new SelectList(Model.EditCourse.getAllCategoryItem,"CategoryId","FaCategoryName"))">
+                                            </select>
+                                            <span asp-validation-for="EditCourse.CourseCategoryId" class="text-danger"></span>
+
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-lg-12 row">
+
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label asp-for="EditCourse.CourseSummery"></label>
+                                                <textarea class="form-control" asp-for="EditCourse.CourseSummery"></textarea>
+                                                <span asp-validation-for="EditCourse.CourseSummery" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12">
+
+                                            <div class="form-group">
+                                                <label asp-for="EditCourse.CourseDescription"></label>
+                                                <textarea class="form-control" asp-for="EditCourse.CourseDescription"></textarea>
+                                                <span asp-validation-for="EditCourse.CourseDescription" class="text-danger"></span>
+                                            </div>
+
+                                        </div>
+
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

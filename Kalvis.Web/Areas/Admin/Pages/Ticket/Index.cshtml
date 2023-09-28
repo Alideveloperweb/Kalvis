@@ -1,0 +1,114 @@
+﻿@page
+@model Kalvis.Web.Areas.Admin.Pages.Ticket.IndexModel
+@{
+}
+
+<div class="wrapper">
+
+    <div class="content-wrapper" style="min-height: 701px;">
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>جداول داده</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-left">
+                            <li class="breadcrumb-item"><a href="#">خانه</a></li>
+                            <li class="breadcrumb-item active">جداول داده</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="row">
+                <div class="col-12">
+                    @await Component.InvokeAsync("OperationResultComponent")
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="example1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table id="example1" class="table table-bordered table-striped dataTable" role="grid">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th>شناسه</th>
+                                                    <th>نام کاربری</th>
+                                                    <th>نام و نام خانوادگی کاربر</th>
+                                                    <th>عنوان تیکت</th>
+                                                    <th>تاریخ ایجاد تیکت</th>
+                                                    <th>عملیات</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                @foreach (var item in Model.Ticket)
+                                                {
+                                                    <tr role="row" class="odd">
+                                                        <td class="sorting_1">@item.TicketId</td>
+                                                        <td>@item.UserName</td>
+                                                        <td>@item.FullName</td>
+                                                        <td>@item.TicketTitle</td>
+                                                        <td>@item.CreateDate</td>
+
+                                                        <td>
+                                                            <a href="/Admin/Ticket/GetTicket/@item.TicketId" class="btn btn-outline-info">پاسخ</a>
+
+                                                        </td>
+                                                    </tr>
+
+                                                }
+
+
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-5">
+                                    </div>
+                                    <div class="col-sm-12 col-md-7">
+                                        <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                                            <ul class="pagination">
+                                                <li class="paginate_button page-item previous disabled" id="example1_previous">
+                                                    <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">قبلی</a>
+                                                </li>
+                                                <li class="paginate_button page-item active">
+                                                    <a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                                                </li>
+                                                <li class="paginate_button page-item ">
+                                                    <a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                                                </li>
+                                                <li class="paginate_button page-item ">
+                                                    <a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0" class="page-link">3</a>
+                                                </li>
+                                                <li class="paginate_button page-item ">
+                                                    <a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0" class="page-link">4</a>
+                                                </li>
+                                                <li class="paginate_button page-item ">
+                                                    <a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0" class="page-link">5</a>
+                                                </li>
+                                                <li class="paginate_button page-item ">
+                                                    <a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0" class="page-link">6</a>
+                                                </li>
+                                                <li class="paginate_button page-item next" id="example1_next">
+                                                    <a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0" class="page-link">بعدی</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>

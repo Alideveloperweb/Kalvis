@@ -1,5 +1,5 @@
 ﻿
-namespace Kalvis.Contract.UserViewmodel
+namespace Kalvis.Contract.UserViewModel
 {
     public class GetUserItem
     {

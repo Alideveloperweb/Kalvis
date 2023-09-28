@@ -1,0 +1,22 @@
+﻿
+@model RemoveBlogItem
+
+<form asp-page="Index"
+      asp-page-handler="Remove"
+      data-method="post"
+      data-ajax="true"
+      data-urlback="/Admin/Blog"
+      enctype="multipart/form-data">
+
+    <input type="hidden" asp-for="BlogId" />
+
+    <div class="col-md-12">
+        <label asp-for="BlogTitle"></label>
+        <input type="text" readonly="readonly" asp-for="BlogTitle"
+               class="form-control" />
+    </div>
+    <div class="modal-footer margin-top-10">
+        <button style="margin:auto;" type="submit" class="btn btn-success margin-left-10">ثبت تغییرات </button>
+    </div>
+
+</form>

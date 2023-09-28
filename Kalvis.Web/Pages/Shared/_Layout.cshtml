@@ -1,0 +1,48 @@
+﻿
+<!doctype html>
+<html lang="fa">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="HTML5,CSS3,HTML,Template,multi-page,Raque - Education & LMS HTML Template">
+    <meta name="description" content="Raque - Education & LMS HTML Template">
+    <meta name="author" content="Barat Hadian">
+
+    <partial name="_css" />
+
+    <title>Raque - قالب HTML راک ، پوسته چندمنظوره آموزش مجازی و دوره های تحصیلی</title>
+
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="shadow"></div>
+            <div class="box"></div>
+        </div>
+    </div>
+
+    <partial name="_Header" />
+
+    <partial name="_SearchOverLay" />
+    <partial name="_Banner" />
+
+    @RenderBody()
+
+    <partial name="_HowItWorksArea" />
+    <partial name="_TeameTeacher" />
+    <partial name="_UserFeedBack" />
+    <partial name="_Partner" />
+    <partial name="_BecomeInstructor" />
+    <partial name="_Footer" />
+    @await Html.PartialAsync("_Footer.cshtml")
+    <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
+    <partial name="_js" />
+</body>
+
+</html>

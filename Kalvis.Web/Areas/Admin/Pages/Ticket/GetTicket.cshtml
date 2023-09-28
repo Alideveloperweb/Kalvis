@@ -1,0 +1,54 @@
+﻿@page "{id}"
+@model Kalvis.Web.Areas.Admin.Pages.Ticket.GetTicketModel
+@{
+}
+
+<div class="content-wrapper" style="min-height: 701px;">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 mt-2d">
+                    @await Component.InvokeAsync("OperationResultComponent")
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+                            <h3 class="card-title">ثبت دسته بندی جدید</h3>
+                        </div>
+
+
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label asp-for="GetTicket.GetTicket.TicketTitle"></label>
+                                <textarea readonly="readonly" asp-for="GetTicket.GetTicket.TicketText" class="form-control"></textarea>
+                            </div>
+                            @foreach (var item in Model.GetTicket.GetAllAnswer)
+                            {
+                                <div class="form-group">
+                                    <span class="form-control">@item.AnswerText</span>
+                                </div>
+                            }
+
+
+                        </div>
+                        <div>
+                            <form method="post" asp-page="Create" role="form">
+                                <input value="@Model.GetTicket.GetTicket.TicketId" type="hidden" asp-for="GetTicket.CreateAnswer.TicketID" />
+                                <div class="form-group">
+                                    <label asp-for="GetTicket.CreateAnswer.AnswerText"></label>
+                                    <textarea asp-for="GetTicket.CreateAnswer.AnswerText" class="form-control"></textarea>
+                                </div>
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">ارسال</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

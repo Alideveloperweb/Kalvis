@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Kalvi.Common.Domain
+namespace Kalvis.Common.Domain
 {
     public class EntityBase<Tkey>
     {

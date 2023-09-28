@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 
 
-namespace Kalvis.Contract.UserViewmodel
+namespace Kalvis.Contract.UserViewModel
 {
     public class UserDetailItem
     {

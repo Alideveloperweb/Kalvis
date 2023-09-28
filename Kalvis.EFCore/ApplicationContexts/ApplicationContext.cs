@@ -1,7 +1,7 @@
-﻿using Kalvi.Domain.EducationEntities.CategoryEntities;
-using Kalvi.Domain.EducationEntities.CommentEntities;
-using Kalvi.Domain.EducationEntities.CourseEntities;
-using Kalvi.Domain.EducationEntities.TeacherEntities;
+﻿using Kalvis.Domain.EducationEntities.CategoryEntities;
+using Kalvis.Domain.EducationEntities.CommentEntities;
+using Kalvis.Domain.EducationEntities.CourseEntities;
+using Kalvis.Domain.EducationEntities.TeacherEntities;
 using Kalvis.Domain.BlogEntities;
 using Kalvis.Domain.DiscountEntities.CourseDisCountEntities;
 using Kalvis.Domain.EducationEntities.UserEntities;
@@ -11,7 +11,16 @@ using Kalvis.Domain.PermissionEntities;
 using Kalvis.Domain.TicketEntities;
 using Kalvis.EFCore.Mapping.CategoryMapper;
 using Microsoft.EntityFrameworkCore;
-
+using Kalvis.EFCore.Mapping.UserMapper;
+using Kalvis.EFCore.Mapping.TeacherMapper;
+using Kalvis.EFCore.Mapping.CourseMapper;
+using Kalvis.EfCore.Mapping.BlogMapper;
+using Kalvis.EfCore.Mapping.DisCountMapper;
+using Kalvis.EfCore.Mapping.CommentMapper;
+using Kalvis.EfCore.Mapping.OrderMapper;
+using Kalvis.EfCore.Mapping.NotificationMapper;
+using Kalvis.EfCore.Mapping.TicketMapper;
+using Kalvis.EfCore.Mapping.PermissionMapper;
 
 namespace Kalvis.EFCore.ApplicationContexts
 {
@@ -21,7 +30,6 @@ namespace Kalvis.EFCore.ApplicationContexts
 
         public ApplicationContext(DbContextOptions<ApplicationContext>options):base(options)
         {
-
         }
 
         #endregion
@@ -113,6 +121,24 @@ namespace Kalvis.EFCore.ApplicationContexts
         {
             builder.ApplyConfiguration(new CategoryMap());
             builder.ApplyConfiguration(new SubCategoryMap());
+            builder.ApplyConfiguration(new UserMap());
+            builder.ApplyConfiguration(new TeacherMap());
+            builder.ApplyConfiguration(new CourseMap());
+            builder.ApplyConfiguration(new CourseEpisodeMap());
+            builder.ApplyConfiguration(new BlogMap());
+            builder.ApplyConfiguration(new CourseDisCountMap());
+            builder.ApplyConfiguration(new CourseCommentMap());
+            builder.ApplyConfiguration(new UserCourseMap());
+            builder.ApplyConfiguration(new CourseOrderMap());
+            builder.ApplyConfiguration(new CourseOrderDetailsMap());
+            builder.ApplyConfiguration(new NotificationMap());
+            builder.ApplyConfiguration(new TicketMap());
+            builder.ApplyConfiguration(new TicketAnswerMap());
+            builder.ApplyConfiguration(new AnswerCommentMap());
+            builder.ApplyConfiguration(new RoleMap());
+            builder.ApplyConfiguration(new RolePermissionMap());
+            builder.ApplyConfiguration(new UserRoleMap());
+
 
             base.OnModelCreating(builder);
         }

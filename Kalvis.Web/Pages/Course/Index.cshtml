@@ -1,0 +1,408 @@
+﻿@page "{id}"
+@model Kalvis.Web.Pages.Course.IndexModel
+@{
+    Layout = null;
+    int Counter = 1;
+    var Duration = new TimeSpan();
+}
+
+<!doctype html>
+<html lang="fa">
+<head>
+    <!-- Required meta tags -->
+    <partial name="_css" />
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="shadow"></div>
+            <div class="box"></div>
+        </div>
+    </div>
+    <!-- End Preloader -->
+    <!-- Start Header Area -->
+    <partial name="_Header" />
+    <!-- End Header Area -->
+    <!-- search-box-layout -->
+    <partial name="_SearchOverLay" />
+    <!-- search-box-layout end -->
+    <!-- Start Page Title Area -->
+    <div class="page-title-area item-bg2 jarallax" data-jarallax='{"speed": 0.3}'>
+        <div class="container">
+            <div class="page-title-content">
+                <ul>
+                    <li><a href="index.html">صفحه اصلی</a></li>
+                    <li><a href="courses-2-columns-style-1.html">جزئیات دوره ها</a></li>
+                    <li>طراحی گرافیک معتبر با دوره پروژه رایگان</li>
+                </ul>
+                <h2>دوره ها</h2>
+            </div>
+        </div>
+    </div>
+    <!-- End Page Title Area -->
+    <!-- Start Courses Details Area -->
+    <section class="courses-details-area pt-100 pb-70">
+        <div class="container">
+            <div class="courses-details-header">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="courses-title">
+                            <h2>@Model.GetCourse.CourseTitle</h2>
+                            <p>@Html.Raw(Model.GetCourse.CourseSummery)</p>
+                        </div>
+
+                        <div class="courses-meta">
+                            <ul>
+                                <li>
+                                    <i class='bx bx-folder-open'></i>
+                                    <span>دسته بندی</span>
+                                    <a href="#">@Model.GetCourse.CategoryNames</a>
+                                </li>
+                                <li>
+                                    <i class='bx bx-group'></i>
+                                    <span>دانشجویان ثبت نامی</span>
+                                    <a href="#">@Model.GetCourse.UserCourseCount</a>
+                                </li>
+                                <li>
+                                    <i class='bx bx-calendar'></i>
+                                    <span>آخرین آپدیت</span>
+                                    <a href="#">@Model.GetCourse.LastUpdate</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="courses-price">
+                            <div class="courses-review">
+                                <div class="review-stars">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                </div>
+                                <span class="reviews-total d-inline-block">(2 بازدید)</span>
+                            </div>
+
+                            @if (Model.GetCourse.CoursePrice > 0 && !Model.GetCourse.Buyer)
+                            {
+                                <div class="price">@(Model.GetCourse.CoursePrice<=0?"رایگان": Model.GetCourse.CoursePrice +" تومان")</div>
+                            }
+
+                            @if (Model.GetCourse.CoursePrice > 0 && !Model.GetCourse.Buyer)
+                            {
+                                <a href="/Cart/Create/@Model.GetCourse.CourseID" class="default-btn">
+                                    <i class='bx bx-paper-plane icon-arrow before'></i>
+                                    <span class="label">خرید دوره</span>
+                                    <i class="bx bx-paper-plane icon-arrow after"></i>
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="default-btn">
+                                    <i class='bx bx-paper-plane icon-arrow before'></i>
+                                    <span class="label">شما دانشجوی دوره هستید</span>
+                                    <i class="bx bx-paper-plane icon-arrow after"></i>
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="courses-details-image text-center">
+                        <img src="/@Model.GetCourse.CourseImage" alt="image">
+                    </div>
+
+                    <div class="courses-details-desc">
+                        @Html.Raw(Model.GetCourse.CourseDesCription)
+
+                        <h3>ویدئو دوره ها</h3>
+                        <div class="courses-accordion">
+                            <ul class="accordion">
+                                @foreach (var item in Model.GetCourse.GetAllEpisode)
+                                {
+                                    <li class="accordion-item">
+                                        <div class="accordion-content show">
+                                            <ul class="courses-lessons">
+                                                <li class="single-lessons">
+                                                    <div class="d-md-flex d-lg-flex align-items-center">
+                                                        <span class="number">@Counter.ToString("00").</span>
+
+                                                        <a href="#" class="lessons-title">@item.EpisodeTitle</a>
+
+                                                        @if (item.IsFree)
+                                                        {
+                                                            <span class="preview">پیش نمایش</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="locked">قفل شد</span>
+                                                        }
+
+                                                    </div>
+
+                                                    <div class="lessons-info">
+                                                        <span class="duration" data-toggle="tooltip" data-placement="top" title="Duration">
+                                                            <i class='bx bx-time'></i>@item.EpisodeTime
+                                                        </span>
+
+                                                        @if (item.IsFree || Model.GetCourse.Buyer)
+                                                        {
+                                                            <a href="/Course/Download/@item.EpisodeID" class="attrachment-video ">
+                                                                <i class='bx bx-play-circle'></i> ویدئو
+                                                            </a>
+                                                        }
+                                                    </div>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    Counter++;
+                                    Duration += new TimeSpan(item.EpisodeTime.Ticks);
+                                }
+
+
+                            </ul>
+                        </div>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div>
+                                <span id="username"></span>
+                                <a style="display: inline-block; margin: 15px 3px; color: red; border: dashed 0.5px gray; padding: 4px; cursor: pointer;" id="Cancell">پاک کردن</a>
+                                <form id="form" asp-page="Index" asp-page-handler="CreateComment" method="post">
+                                    <div class="row">
+                                        <input type="hidden" id="courseid" asp-for="CreateComment.CourseID" value="@Model.GetCourse.CourseID" />
+                                        <input type="hidden" id="commentid" asp-for="CreateComment.CommentID" />
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="form-group">
+                                                <textarea asp-for="CreateComment.Text" class="form-control" cols="30" rows="5" required data-error="پیام خود را وارد کنید" placeholder="پیام شما">
+
+                                                </textarea>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-12">
+                                            <button type="submit" class="default-btn">
+                                                <i class='bx bx-paper-plane icon-arrow before'>
+                                                </i><span class="label">ارسال پیام</span><i class="bx bx-paper-plane icon-arrow after"></i>
+                                            </button>
+                                            <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        }
+
+                        <div class="courses-review-comments">
+                            <h3>@Model.GetCourse.GetAllComment.Count() نظرات</h3>
+                            @foreach (var item in Model.GetCourse.GetAllComment)
+                            {
+                                <div class="user-review">
+
+
+                                    <div class="review-rating">
+                                        <div class="review-stars">
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                        </div>
+
+                                        <span class="d-inline-block">@item.FullName</span>
+                                    </div>
+
+                                    @Html.Raw(item.CommentText)
+                                </div>
+                                if (User.Identity.IsAuthenticated)
+                                {
+                                    <a class="btn btn-success AddAnswer" data-commentid="@item.CommentID" data-username="@item.FullName">پاسخ</a>
+                                }
+
+                                @foreach (var item2 in item.GetAllAnswer)
+                                {
+                                    <div class="user-review" style="margin-right: 50px; border: dashed 1px;">
+
+
+                                        <div class="review-rating">
+                                            <div class="review-stars">
+                                                <i class='bx bxs-star'></i>
+                                                <i class='bx bxs-star'></i>
+                                                <i class='bx bxs-star'></i>
+                                                <i class='bx bxs-star'></i>
+                                                <i class='bx bxs-star'></i>
+                                            </div>
+
+                                            <span class="d-inline-block">@item2.FullName</span>
+                                        </div>
+
+                                        @Html.Raw(item2.AnswerText)
+                                    </div>
+                                    if (User.Identity.IsAuthenticated)
+                                    {
+                                        <a class="btn btn-success AddAnswer" data-commentid="@item2.CommentID" data-username="@item2.FullName">پاسخ</a>
+                                    }
+
+                                }
+                            }
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="related-courses">
+                        <h3>دوره های مرتبط</h3>
+
+                        <div class="row">
+                            @foreach (var item in Model.ListSimilar)
+                            {
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="single-courses-box mb-30">
+                                        <div class="courses-image">
+                                            <a href="single-courses.html" class="d-block"><img src="/@item.CourseImage" alt="image"></a>
+
+                                            <div class="courses-tag">
+                                                <a href="#" class="d-block">@item.CategoryName</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="courses-content">
+
+
+                                            <h3><a href="single-courses.html" class="d-inline-block">@item.CourseTitle</a></h3>
+
+                                            <div class="courses-rating">
+                                                <div class="review-stars-rated">
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                    <i class='bx bxs-star'></i>
+                                                </div>
+
+                                                <div class="rating-total">
+                                                    5.0 (1 امتیاز)
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="courses-box-footer">
+                                            <ul>
+                                                <li class="students-number">
+                                                    <i class='bx bx-user'></i> @item.UserCourseCount دانشجو
+                                                </li>
+
+                                                <li class="courses-lesson">
+                                                    <i class='bx bx-book-open'></i> @item.EpisodeCount درس
+                                                </li>
+
+                                                <li class="courses-price">
+                                                    @(item.CoursePrice>0?item.CoursePrice:"رایگان")
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+                @{
+                    var Hourse = (int)Duration.TotalHours;
+                    var Minutes = (int)Duration.TotalMinutes % 60;
+                    var Seconds = (int)Duration.TotalSeconds % 60;
+                }
+                <div class="col-lg-4">
+                    <div class="courses-sidebar-information">
+                        <ul>
+                            <li>
+                                <span><i class='bx bx-group'></i> دانشجویان:</span>
+                                @Model.GetCourse.UserCourseCount
+                            </li>
+                            <li>
+                                <span><i class='bx bx-time'></i> مدت:</span>
+                                @($"{Hourse.ToString("00") }:{Minutes.ToString("00")}:{Seconds.ToString("00")}")
+                            </li>
+
+                            <li>
+                                <span><i class='bx bxs-institution'></i> موسسه، نهاد:</span>
+                                <a href="#" class="d-inline-block">@Model.GetCourse.TeacherName</a>
+                            </li>
+                            <li>
+                                <span><i class='bx bxs-graduation'></i> موضوع:</span>
+                                @Model.GetCourse.CourseTitle
+                            </li>
+
+                            <li>
+                                <span><i class='bx bxs-badge-check'></i> سطح:</span>
+                                @Model.GetCourse.courseLevel
+                            </li>
+                            <li>
+                                <span><i class='bx bx-support'></i> زبان:</span>
+                                @Model.GetCourse.Language
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Courses Details Area -->
+
+    <partial name="_Footer" />
+
+    <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
+    <partial name="_js" />
+    <script>
+        $(function () {
+            $("#Cancell").hide();
+            $("#commentid").val('');
+            $("#CreateComment_Text").val('');
+            $("#username").val('');
+            $("#username").hide();
+        });
+
+        $(".AddAnswer").click(function () {
+            var UserName = $(this).data("username");
+            var CommentID = $(this).data("commentid");
+            $("html,body").animate({
+                scrollTop: $("#form").offset().top - 250
+            }, 500);
+            $("#username").show();
+            $("#Cancell").show();
+            $("#commentid").val(CommentID);
+            $("#username").text(UserName);
+        });
+
+        $("#Cancell").click(function () {
+
+            $("#Cancell").hide();
+            $("#commentid").val('');
+            $("#CreateComment_Text").val('');
+            $("#username").val('');
+            $("#username").hide();
+        });
+
+    </script>
+</body>
+</html>
+

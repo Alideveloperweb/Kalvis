@@ -1,0 +1,104 @@
+﻿@page
+@model Kalvis.Web.Pages.Account.LoginModel
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="fa">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="HTML5,CSS3,HTML,Template,multi-page,Raque - Education & LMS HTML Template">
+    <meta name="description" content="Raque - Education & LMS HTML Template">
+    <meta name="author" content="Barat Hadian">
+    <partial name="_css" />
+    <title>Raque - قالب HTML راک ، پوسته چندمنظوره آموزش مجازی و دوره های تحصیلی</title>
+
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+</head>
+
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="shadow"></div>
+            <div class="box"></div>
+        </div>
+    </div>
+    <!-- End Preloader -->
+    <!-- Start Login Area -->
+    <section class="login-area">
+        <div class="row m-0">
+            <div class="col-lg-6 col-md-12 p-0">
+                <div class="login-image">
+                    <img src="/ThemeSite/assets/img/login-bg.jpg" alt="image">
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 p-0">
+                <div class="login-content">
+                    <div class="d-table">
+                        <div class="d-table-cell">
+                            <div class="login-form">
+                                <div class="logo">
+                                    <a href="index.html"><img src="/ThemeSite/assets/img/black-logo.png" alt="image"></a>
+                                </div>
+                                @if (TempData["LoginSuccess"] != null)
+                                {
+                                    <script>
+                                        window.setTimeout(function () {
+                                            Swal.fire({
+                                                icon: "success",
+                                                showConfirmButton: false,
+                                                text: "ورود با موفقیت انجام شد"
+
+                                            });
+
+                                        }, 50);
+
+                                        window.setTimeout(function () {
+                                            location.href = "/"
+                                        }, 2000);
+
+                                    </script>
+                                }
+                                <h3>خوش آمدید</h3>
+                                <p>کاربر جدید راک؟ <a href="register.html">ثبت نام</a></p>
+                                @await Component.InvokeAsync("OperationComponent")
+                                <form method="post" asp-page="Login">
+                                    <div class="form-group">
+                                        <input asp-for="login.UserName" type="text" placeholder="نام کاربری را وارد نمایید" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input asp-for="login.Password" type="password" placeholder="رمز عبور" class="form-control">
+                                    </div>
+                                    <div class="form-group" style="margin-right:-75%;">
+                                        <input type="checkbox" asp-for="login.IsPersistent" />
+
+                                        <label class="">مرا بخاطر بسپار</label>
+                                    </div>
+                                    <button type="submit">ورود</button>
+
+                                    <div class="forgot-password">
+                                        <a href="#">رمز عبور را فراموش کرده اید؟</a>
+                                    </div>
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <partial name="_js" />
+</body>
+
+</html>

@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Kalvis.Common.Domain;
+using Kalvis.Contract.BlogViewModel;
 
 namespace Kalvis.Domain.BlogEntities.Interface
 {
-    public interface IBlogRepository
+    public interface IBlogRepository : IRepositoryBase<int, Blog>
     {
+        List<GetAllBlogItem> GetAllBlog(bool IsRemove, bool IsActive);
+        List<GetAllBlogItem> GetAllBlog(bool IsRemove);
+        EditBlogItem FindBlogForEdit(int BlogId);
+        RemoveBlogItem FindBlogForRemove(int BlogId);
+        GetBlogItem GetBlog(int BlogID);
+        List<GetAllBlogQueryItem> GetAllBlogQuery(bool IsRemove, bool IsActive);
     }
 }

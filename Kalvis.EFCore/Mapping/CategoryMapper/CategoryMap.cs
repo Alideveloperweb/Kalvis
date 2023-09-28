@@ -1,4 +1,4 @@
-﻿using Kalvi.Domain.EducationEntities.CategoryEntities;
+﻿using Kalvis.Domain.EducationEntities.CategoryEntities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

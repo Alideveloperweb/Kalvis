@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Kalvis.Contract.UserViewmodel
+namespace Kalvis.Contract.UserViewModel
 {
     public class GetAllUserItem
     {

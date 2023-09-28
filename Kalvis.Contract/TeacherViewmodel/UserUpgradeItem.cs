@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Kalvis.Contract.TeacherViewmodel
+﻿
+namespace Kalvis.Contract.TeacherViewModel
 {
     public class UserUpgradeItem
     {
+        public int Id { get; set; }
+
+        public long TeacherId { get; set; }
+
+        public bool IsTeacher { get; set; }
     }
 }

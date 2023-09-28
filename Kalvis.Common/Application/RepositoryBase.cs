@@ -1,4 +1,4 @@
-﻿using Kalvi.Common.Domain;
+﻿using Kalvis.Common.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

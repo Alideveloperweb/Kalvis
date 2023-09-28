@@ -1,14 +1,9 @@
-﻿using Kalvi.Contract.CategoryViewmodel.Interface;
-using Kalvi.Domain.EducationEntities.CategoryEntities.Interface;
+﻿using Kalvis.Contract.CategoryViewModel.Interface;
+using Kalvis.Domain.EducationEntities.CategoryEntities.Interface;
 using Kalvis.Application.CategoryApp;
 using Kalvis.Contract.CategoryViewModel.Interface;
 using Kalvis.EFCore.Repository.CaategoryRepository;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kalvis.Configuration.CategoryConfig
 {

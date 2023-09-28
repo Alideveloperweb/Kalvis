@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Kalvis.Contract.TeacherViewmodel
+﻿
+namespace Kalvis.Contract.TeacherViewModel
 {
     public class GetTeacherForCommitionItem
     {
+        public long UserID { get; set; }
+        public int Wallet { get; set; }
     }
 }

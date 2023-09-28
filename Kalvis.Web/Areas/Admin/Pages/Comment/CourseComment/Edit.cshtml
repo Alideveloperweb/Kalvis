@@ -1,0 +1,57 @@
+﻿@page "{id}"
+@model Kalvis.Web.Areas.Admin.Pages.Comment.CourseComment.EditModel
+@{
+}
+
+<div class="content-wrapper" style="min-height: 701px;">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 mt-2d">
+                    @await Component.InvokeAsync("OperationResultComponent")
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+                            <h3 class="card-title">ثبت دسته بندی جدید</h3>
+                        </div>
+
+                        <form method="post"
+                              asp-page="Edit">
+                            <input asp-for="GetComment.CommentId" type="hidden" />
+                            <div class="card-body">
+
+                                <div class="row col-lg-12">
+
+                                    <div class="col-lg-12 row">
+
+
+
+                                        <div class="col-lg-12">
+
+                                            <div class="form-group">
+                                                <label asp-for="GetComment.CommentText"></label>
+                                                <textarea class="form-control" asp-for="GetComment.CommentText"></textarea>
+                                                <span asp-validation-for="GetComment.CommentText" class="text-danger"></span>
+                                            </div>
+
+                                        </div>
+
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

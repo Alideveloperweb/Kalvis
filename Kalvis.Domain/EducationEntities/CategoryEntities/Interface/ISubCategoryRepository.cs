@@ -1,7 +1,7 @@
-﻿using Kalvi.Common.Domain;
-using Kalvi.Domain.EducationEntities.CategoryEntities;
+﻿using Kalvis.Domain.EducationEntities.CategoryEntities;
+using Kalvis.Common.Domain;
 
-namespace Kalvi.Contract.CategoryViewmodel.Interface
+namespace Kalvis.Contract.CategoryViewModel.Interface
 {
     public interface ISubCategoryRepository : IRepositoryBase<int, SubCategory>
     {

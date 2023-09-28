@@ -1,11 +1,8 @@
-﻿
-using Kalvi.Common.Domain;
-using Kalvi.Domain.EducationEntities.CourseEntities;
+﻿using Kalvis.Common.Domain;
+using Kalvis.Domain.EducationEntities.CourseEntities;
+using Kalvis.Domain.UserEntities;
 
-using System;
-using System.Collections.Generic;
-
-namespace Kalvi.Domain.EducationEntities.CommentEntities
+namespace Kalvis.Domain.EducationEntities.CommentEntities
 {
     public class CourseComment : EntityBase<long>
     {
@@ -46,8 +43,8 @@ namespace Kalvi.Domain.EducationEntities.CommentEntities
 
         #region Relation
         public Course Course { get; private set; }
-        //public User User { get; private set; }
-        //public List<AnswerComment> AnswerComments { get; private set; }
+        public User User { get; private set; }
+        public List<AnswerComment> AnswerComments { get; private set; }
         #endregion
     }
 }

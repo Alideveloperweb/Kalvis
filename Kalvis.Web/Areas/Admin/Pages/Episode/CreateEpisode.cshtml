@@ -1,0 +1,42 @@
+﻿
+@model CreateEpisodeItem
+
+
+<form asp-page="Index"
+      asp-page-handler="CreateEpisode"
+      data-method="post"
+      data-ajax="true"
+      data-urlback="/Admin/Episode/@Model.CourseId"
+      enctype="multipart/form-data">
+
+    <input type="hidden" asp-for="CourseId" />
+
+    <div class="col-md-12">
+        <label asp-for="EpisodeTitle"></label>
+        <input type="text" asp-for="EpisodeTitle"
+               class="form-control" />
+    </div>
+
+    <div class="col-md-12">
+        <label asp-for="EpisodeLink"></label>
+        <input type="text" asp-for="EpisodeLink"
+               class="form-control" />
+    </div>
+
+    <div class="col-md-12">
+        <label asp-for="EpisodeTime"></label>
+        <input type="text" asp-for="EpisodeTime"
+               class="form-control" />
+    </div>
+
+    <div class="col-md-12">
+        <label asp-for="IsFree"></label>
+        <input type="checkbox" asp-for="IsFree"
+               class="" />
+    </div>
+
+    <div class="modal-footer margin-top-10">
+        <button style="margin:auto;" type="submit" class="btn btn-success margin-left-10">ثبت تغییرات </button>
+    </div>
+
+</form>

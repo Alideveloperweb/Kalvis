@@ -1,5 +1,5 @@
-﻿using Kalvi.Domain.EducationEntities.CategoryEntities;
-using Kalvi.Domain.EducationEntities.CategoryEntities.Interface;
+﻿using Kalvis.Domain.EducationEntities.CategoryEntities;
+using Kalvis.Domain.EducationEntities.CategoryEntities.Interface;
 using Kalvis.Common.Application;
 using Kalvis.Contract.CategoryViewModel;
 using Kalvis.EFCore.ApplicationContexts;

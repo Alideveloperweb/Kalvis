@@ -1,8 +1,8 @@
 ﻿
 
-using Kalvi.Common.Domain;
+using Kalvis.Common.Domain;
 
-namespace Kalvi.Domain.EducationEntities.CommentEntities.Interface
+namespace Kalvis.Domain.EducationEntities.CommentEntities.Interface
 {
     public interface ICourseAnswerCommentRepository
          : IRepositoryBase<long, AnswerComment>

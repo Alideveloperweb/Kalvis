@@ -9,13 +9,12 @@ namespace Kalvis.Common.Application
 
     public static class GetValueArraye
     {
-        //public static string ArrayeGetValue()
-        //    this ICollection<object> Route, int Value)
-        //{
-        // return Route.ToArray()
-        //        .GetValue(Value)
-        //        .ToString()
-        //        .ToLower();
+        public static string ArrayeGetValue(this ICollection<object> Route, int Value)
+        {
+            return Route.ToArray()
+                   .GetValue(Value)
+                   .ToString().ToLower();
+        }
     }
 }
 

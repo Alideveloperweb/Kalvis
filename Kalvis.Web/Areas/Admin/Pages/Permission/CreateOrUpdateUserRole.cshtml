@@ -1,0 +1,45 @@
+﻿@page "{id}"
+@model Kalvis.Web.Areas.Admin.Pages.Permission.CreateOrUpdateUserRoleModel
+@{
+}
+
+
+<div class="content-wrapper" style="min-height: 701px;">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 mt-2d">
+                    @await Component.InvokeAsync("OperationResultComponent")
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+                            <h3 class="card-title">ثبت دسته بندی جدید</h3>
+                        </div>
+
+                        <form method="post" asp-page="CreateOrUpdateUserRole" role="form">
+                            <input type="hidden" name="UserID" value="@TempData["userid"].ToString()" />
+                            <div class="card-body">
+                                @foreach (var item in Model.GetAllRole)
+                                {
+                                    <div class="form-group">
+                                        <label>@item.RoleTitle</label>
+
+                                        <input value="@item.RoleID" checked="@(Model.FindRoleUser.Where(x=>x.RoleID==item.RoleID).Any()?"checked":null)"
+                                               name="RoleID" type="checkbox">
+                                    </div>
+                                }
+
+
+                            </div>
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

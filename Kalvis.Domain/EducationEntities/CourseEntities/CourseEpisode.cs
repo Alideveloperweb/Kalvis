@@ -1,8 +1,8 @@
 ﻿
-using Kalvi.Common.Domain;
+using Kalvis.Common.Domain;
 using System;
 
-namespace Kalvi.Domain.EducationEntities.CourseEntities
+namespace Kalvis.Domain.EducationEntities.CourseEntities
 {
     public class CourseEpisode : EntityBase<long>
     {

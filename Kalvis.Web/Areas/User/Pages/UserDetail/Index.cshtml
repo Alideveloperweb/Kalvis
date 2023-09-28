@@ -1,0 +1,47 @@
+﻿@page
+@model Kalvis.Web.Areas.User.Pages.UserDetail.IndexModel
+@{
+}
+
+<div class="tab-pane fade show text-right col-lg-9 mt-5" id="user-change">
+    <!----- Start user change ----->
+    <div class="card mb-3">
+        <div class="card-header">
+            <p class="font-13 vazir mt-2 mr-2">جزئیات حساب کاربری شما :</p>
+        </div>
+        <div class="card-body">
+            @await Component.InvokeAsync("OperationUserComponent")
+            <form asp-page="Index" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name" class="font-14 vazir mr-2">نام :</label>
+                    <input asp-for="Detail.FirstName" type="text" class="form-control form-control-lg">
+                </div>
+
+                <div class="form-group">
+                    <label for="lastname" class="font-14 vazir mr-2">نام خانوادگی :</label>
+                    <input asp-for="Detail.LastName" type="text" class="form-control form-control-lg">
+                </div>
+
+                <div class="custom-file my-4">
+                    <input asp-for="Detail.Uploder" type="file" class="custom-file-input">
+                    <label asp-for="Detail.Uploder" class="custom-file-label font-13" for="customFile">انتخاب عکس</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="username" class="font-14 vazir mr-2">نام کاربری :</label>
+                    <input asp-for="Detail.UserName" type="text" class="form-control form-control-lg">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email" class="font-14 vazir mr-2">ایمیل:</label>
+                    <input asp-for="Detail.Email" type="email" class="form-control form-control-lg">
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-lg btn-outline-info btn-block my-4 font-13"> ثبت تغییرات </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

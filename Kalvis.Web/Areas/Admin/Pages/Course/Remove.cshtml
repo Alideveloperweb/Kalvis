@@ -1,0 +1,23 @@
+﻿
+@model RemoveCourseItem
+
+<form asp-page="Index"
+      asp-page-handler="RemoveCourse"
+      data-method="post"
+      data-ajax="true"
+      data-urlback="/Admin/Course"
+      enctype="multipart/form-data">
+
+    <input type="hidden" asp-for="CourseId" />
+
+    <div class="col-md-12">
+        <label asp-for="CourseTitle"></label>
+        <input type="text" asp-for="CourseTitle"
+               class="form-control" readonly="readonly" />
+
+    </div>
+    <div class="modal-footer margin-top-10">
+        <button style="margin:auto;" type="submit" class="btn btn-success margin-left-10">ثبت تغییرات </button>
+    </div>
+
+</form>

@@ -1,0 +1,103 @@
+﻿@page "{id}"
+@model Kalvis.Web.Areas.Admin.Pages.User.UpdateModel
+@{
+}
+
+
+<div class="content-wrapper" style="min-height: 701px;">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 mt-2d">
+                    @await Component.InvokeAsync("OperationResultComponent")
+                    <div class="card card-primary">
+
+                        <div class="card-header">
+                            <h3 class="card-title">ثبت دسته بندی جدید</h3>
+                        </div>
+
+                        <form method="post" asp-page="Update" role="form">
+                            <input type="hidden" asp-for="EditUser.UserId" />
+                            <div class="card-body">
+
+                                <div class="row col-lg-12">
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label asp-for="EditUser.FirstName"></label>
+                                            <input asp-for="EditUser.FirstName" class="form-control">
+                                            <span asp-validation-for="EditUser.FirstName" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label asp-for="EditUser.LastName"></label>
+                                            <input asp-for="EditUser.LastName" class="form-control">
+                                            <span asp-validation-for="EditUser.LastName" class="text-danger"></span>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label asp-for="EditUser.UserName"></label>
+                                            <input asp-for="EditUser.UserName" class="form-control">
+                                            <span asp-validation-for="EditUser.UserName" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label asp-for="EditUser.Email"></label>
+                                            <input asp-for="EditUser.Email" class="form-control">
+                                            <span asp-validation-for="EditUser.Email" class="text-danger"></span>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row col-lg-12">
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label asp-for="EditUser.Phone"></label>
+                                            <input asp-for="EditUser.Phone" class="form-control">
+                                            <span asp-validation-for="EditUser.Phone" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label asp-for="EditUser.Password"></label>
+                                            <input asp-for="EditUser.Password" class="form-control">
+                                            <span asp-validation-for="EditUser.Password" class="text-danger"></span>
+
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label asp-for="EditUser.IsResmove"></label>
+                                            <input asp-for="EditUser.IsResmove" class=" ">
+                                            <span asp-validation-for="EditUser.IsResmove" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label asp-for="EditUser.IsActive"></label>
+                                            <input asp-for="EditUser.IsActive" class="">
+                                            <span asp-validation-for="EditUser.IsActive" class="text-danger"></span>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">ارسال</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

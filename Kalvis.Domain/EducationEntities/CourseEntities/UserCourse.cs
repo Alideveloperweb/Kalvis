@@ -1,5 +1,7 @@
 ﻿
-namespace Kalvi.Domain.EducationEntities.CourseEntities
+using Kalvis.Domain.UserEntities;
+
+namespace Kalvis.Domain.EducationEntities.CourseEntities
 {
     public class UserCourse
     {
@@ -20,7 +22,7 @@ namespace Kalvi.Domain.EducationEntities.CourseEntities
 
         #region Relation
         public Course Course { get; private set; }
-        //public User User { get; private set; }
+        public User User { get; private set; }
         #endregion
     }
 }

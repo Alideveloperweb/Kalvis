@@ -1,8 +1,8 @@
-﻿using Kalvi.Domain.EducationEntities.CourseEntities;
-
+﻿using Kalvis.Domain.EducationEntities.CourseEntities;
+using Kalvis.Domain.UserEntities;
 using System.Collections.Generic;
 
-namespace Kalvi.Domain.EducationEntities.TeacherEntities
+namespace Kalvis.Domain.EducationEntities.TeacherEntities
 {
     public class Teacher
     {
@@ -20,7 +20,7 @@ namespace Kalvi.Domain.EducationEntities.TeacherEntities
 
 
         #region Relation
-        //public User user { get; private set; }
+        public User user { get; private set; }
         #endregion
 
     }

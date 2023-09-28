@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Kalvis.Common.Domain;
+using Kalvis.Contract.NotificationViewModel;
+
 
 namespace Kalvis.Domain.NotificationEntities
 {
-    public class Notification
+    public class Notification : EntityBase<int>
     {
+        public string NotificcationTitle { get; private set; }
+        public string NotificcationText { get; private set; }
     }
 }

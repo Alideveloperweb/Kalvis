@@ -1,11 +1,5 @@
-﻿using Kalvi.Common.Domain;
-using Kalvis.Contract.CategoryViewModel;
-using Kalvis.Contract.UserViewmodel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Kalvis.Common.Domain;
+using Kalvis.Contract.UserViewModel;
 
 namespace Kalvis.Domain.EducationEntities.UserEntities.Interface
 {

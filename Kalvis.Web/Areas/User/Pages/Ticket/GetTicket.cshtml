@@ -1,0 +1,31 @@
+﻿@page "{id}"
+@model Kalvis.Web.Areas.User.Pages.Ticket.GetTicketModel
+@{
+}
+
+
+<div class="tab-pane fade show col-lg-9 mt-5" id="ticket">
+    <!----- Start ticket ----->
+    <div class="card mb-3">
+        <div class="card-header">
+            <p class="font-13 vazir mt-2 mr-2">تیکت های شما :</p>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="form-group">
+                        <label for="title" class="font-14 vazir">عنوان</label>
+                        <input readonly="readonly" asp-for="Ticket.TicketTitle" class="form-control form-control-lg" type="text" placeholder="عنوان مورد نظر خود را وارد کنید ...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="text" class="font-14 vazir">متن پیام</label>
+                        <textarea readonly="readonly" asp-for="Ticket.TicketText" class="form-control" rows="3" placeholder="پیام خود را وارد کنید ..."></textarea>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
